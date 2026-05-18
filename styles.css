@@ -361,12 +361,6 @@ h1 {
   gap: 1rem;
 }
 
-.review-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-
 .photo-card {
   margin: 0;
   overflow: hidden;
@@ -391,6 +385,7 @@ h1 {
 }
 
 .review-card {
+  flex: 0 0 100%;
   border-radius: 22px;
   border: 1px solid rgba(23, 50, 74, 0.12);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(243, 241, 234, 0.9));
@@ -399,7 +394,6 @@ h1 {
 }
 
 .review-card--featured {
-  grid-column: span 2;
   background: linear-gradient(135deg, rgba(23, 50, 74, 0.95), rgba(36, 78, 109, 0.94));
 }
 
@@ -419,6 +413,66 @@ h1 {
   margin: 0.75rem 0 0;
   font-weight: 800;
   color: var(--accent);
+}
+
+.review-carousel {
+  display: grid;
+  gap: 1rem;
+}
+
+.review-carousel__viewport {
+  overflow: hidden;
+}
+
+.review-carousel__track {
+  display: flex;
+  align-items: stretch;
+  transition: transform 420ms ease;
+  will-change: transform;
+}
+
+.review-slide {
+  min-height: 100%;
+}
+
+.review-carousel__controls {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.85rem;
+  align-items: center;
+}
+
+.carousel-button {
+  min-height: 44px;
+  border: 1px solid rgba(23, 50, 74, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--brand);
+  font: inherit;
+  font-weight: 800;
+  padding: 0.65rem 1rem;
+  cursor: pointer;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.carousel-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(23, 50, 74, 0.22);
+  cursor: pointer;
+  padding: 0;
+}
+
+.carousel-dot.is-active {
+  background: var(--brand);
 }
 
 .contact-tile {
@@ -455,8 +509,7 @@ h1 {
   .split,
   .grid,
   .contact-grid,
-  .photo-grid,
-  .review-grid {
+  .photo-grid {
     grid-template-columns: 1fr;
   }
 
@@ -495,7 +548,15 @@ h1 {
   }
 
   .review-card--featured {
-    grid-column: auto;
+    background: linear-gradient(135deg, rgba(23, 50, 74, 0.95), rgba(36, 78, 109, 0.94));
+  }
+
+  .review-carousel__controls {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel-button {
+    width: 100%;
   }
 
   .button {
