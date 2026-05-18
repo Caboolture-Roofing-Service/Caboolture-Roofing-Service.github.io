@@ -503,6 +503,19 @@ h1 {
   margin: 0;
 }
 
+.site-credit {
+  margin: 0.85rem 0 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.96rem;
+}
+
+.site-credit a {
+  color: var(--brand);
+  font-weight: 800;
+  text-decoration: none;
+}
+
 @media (max-width: 920px) {
   .hero,
   .strip,

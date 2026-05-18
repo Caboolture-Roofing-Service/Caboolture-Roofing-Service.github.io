@@ -11,6 +11,9 @@ if (carousel) {
 
   let index = 0;
   let timer;
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let isTouching = false;
 
   const dots = slides.map((_, slideIndex) => {
     const dot = document.createElement("button");
@@ -52,6 +55,44 @@ if (carousel) {
     render();
     restart();
   });
+
+  carousel.addEventListener(
+    "touchstart",
+    (event) => {
+      if (event.touches.length !== 1) {
+        return;
+      }
+
+      isTouching = true;
+      touchStartX = event.touches[0].clientX;
+      touchStartY = event.touches[0].clientY;
+    },
+    { passive: true }
+  );
+
+  carousel.addEventListener(
+    "touchend",
+    (event) => {
+      if (!isTouching) {
+        return;
+      }
+
+      isTouching = false;
+
+      const touch = event.changedTouches[0];
+      const deltaX = touch.clientX - touchStartX;
+      const deltaY = touch.clientY - touchStartY;
+
+      if (Math.abs(deltaX) < 40 || Math.abs(deltaX) < Math.abs(deltaY)) {
+        return;
+      }
+
+      index = deltaX < 0 ? (index + 1) % slides.length : (index - 1 + slides.length) % slides.length;
+      render();
+      restart();
+    },
+    { passive: true }
+  );
 
   render();
   restart();
