@@ -549,7 +549,18 @@ h1 {
   }
 
   .brand img {
-    width: min(320px, 72vw);
+    width: min(320px, 100%);
+  }
+
+  .brand {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.55rem;
+    width: 100%;
+  }
+
+  .brand span {
+    width: 100%;
   }
 
   .hero-facts {
