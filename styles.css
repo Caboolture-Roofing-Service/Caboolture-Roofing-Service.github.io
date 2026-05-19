@@ -70,12 +70,13 @@ a {
 }
 
 .brand img {
-  width: 76px;
-  height: 76px;
-  object-fit: cover;
-  border-radius: 16px;
+  width: min(240px, 42vw);
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
   border: 1px solid rgba(23, 50, 74, 0.15);
   background: #fff;
+  display: block;
 }
 
 .brand strong,
@@ -547,8 +548,7 @@ h1 {
   }
 
   .brand img {
-    width: 62px;
-    height: 62px;
+    width: min(180px, 58vw);
   }
 
   .hero-facts {
