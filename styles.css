@@ -67,10 +67,11 @@ a {
   gap: 0.9rem;
   text-decoration: none;
   min-width: 0;
+  flex: 1 1 auto;
 }
 
 .brand img {
-  width: min(240px, 42vw);
+  width: min(360px, 44vw);
   height: auto;
   object-fit: contain;
   border-radius: 12px;
@@ -548,7 +549,7 @@ h1 {
   }
 
   .brand img {
-    width: min(180px, 58vw);
+    width: min(320px, 72vw);
   }
 
   .hero-facts {
